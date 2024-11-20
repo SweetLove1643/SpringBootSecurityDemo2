@@ -1,4 +1,4 @@
-package vn.iostar.Entity;
+package vn.iostar.Config;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vn.iostar.Entity.UserInfo;
 
 
 @Data
@@ -32,24 +33,19 @@ public class UserInfoUserDetails implements UserDetails{
 				.collect(Collectors.toList());
 	}
 
-@Override
+	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return password;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return name;
 	}
 	
-	
-
 }

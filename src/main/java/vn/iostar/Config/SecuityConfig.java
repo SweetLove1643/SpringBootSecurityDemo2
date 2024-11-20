@@ -14,7 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import vn.iostar.Repository.UserInfoRepository;
-import vn.iostar.Service.UserInfoService;
 
 @Configuration
 @EnableMethodSecurity
@@ -41,6 +40,7 @@ public class SecuityConfig {
 		return authenticationProvider;
 	}
 
+	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 		return http.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(auth -> auth

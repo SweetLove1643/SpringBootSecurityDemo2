@@ -1,4 +1,4 @@
-package vn.iostar.Service;
+package vn.iostar.Config;
 
 
 import java.util.Optional;
@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 
 import vn.iostar.Entity.UserInfo;
-import vn.iostar.Entity.UserInfoUserDetails;
 import vn.iostar.Repository.UserInfoRepository;
 
 public class UserInfoService implements UserDetailsService{
@@ -18,10 +17,11 @@ public class UserInfoService implements UserDetailsService{
 	@Autowired
 	UserInfoRepository userrepo;
 	
-	public UserInfoService(UserInfoRepository userrepo) {
-		this.userrepo = userrepo;
+	public UserInfoService(UserInfoRepository userrepository) {
+		this.userrepo = userrepository;
 	}
 	
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
 		Optional<UserInfo> userInfo = userrepo.findByName(username);
 		return userInfo.map(UserInfoUserDetails::new)
